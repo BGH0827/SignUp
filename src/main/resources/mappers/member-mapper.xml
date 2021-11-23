@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Member">
+	<resultMap type="Member" id="memberResultSet">
+		<id property="member_id" column="MEMBER_ID"/>
+		<result property="member_pwd" column="MEMBER_PWD"/>
+		<result property="member_nm" column="MEMBER_NM"/>
+		<result property="member_enroll_dt" column="MEMBER_ENROLL_DT"/>
+	</resultMap>
+	
+	<insert id="signUp" parameterType="string">
+		INSERT INTO MEMBER
+		VALUES (#{member_id}, #{member_pwd}, #{member_nm}, sysdate)
+	</insert>
+</mapper>
